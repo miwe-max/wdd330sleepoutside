@@ -1,3 +1,5 @@
+import { renderListWithTemplate } from "./utils.mjs";
+
 function productCardTemplate(product) {
     return `<li class="product-card">
             <a href="product_pages/?product=${product.Id}">
@@ -21,12 +23,17 @@ export default class ProductList {
 
     async init() {
         const productList = await this.dataSource.getData();
-        this.renderList(productList, this.listElement);
+        // this.renderList(productList, this.listElement);
+        this.renderList(productList);
     }
 
-    renderList(list, listElement) {
-        const templateArray = list.map(productCardTemplate);
-        listElement.innerHTML = "";
-        listElement.innerHTML = templateArray.join("");
+    // renderList(list, listElement) {
+    //     const templateArray = list.map(productCardTemplate);
+    //     listElement.innerHTML = "";
+    //     listElement.insertAdjacentHTML("afterbegin", templateArray.join(""));
+    // }
+
+    renderList(productList) {
+        renderListWithTemplate(productCardTemplate, this.listElement, productList, "afterbegin", true);
     }
 };
