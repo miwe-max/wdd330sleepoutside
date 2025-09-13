@@ -30,6 +30,12 @@ export function getParam(param) {
   return product;
 }
 
+// this is a function to render and insert the template literal strings inside a parent element
+// templateFn is the function to use to map the list of product
+// parent element is the parent element inside the DOM where we'll append the template literals
+// list is the product list or an array of object
+// position is the position where to insert inside DOM: beforebegin, afterbegin, beforeend, afterend
+// clear is a boolean to check if we want to clear the parent element beforehand
 export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
   // clear parentElement if clear is true
   if(clear) {
