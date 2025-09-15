@@ -1,9 +1,14 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, renderNumberOfItemsBackpack } from "./utils.mjs";
 
 function renderCartContents() {
+  // adding a check to see if the cart is empty
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  if (cartItems === null) {
+    document.querySelector(".product-list").textContent = "Your cart is empty!";
+  } else {
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  }
 }
 
 function cartItemTemplate(item) {
@@ -26,3 +31,6 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+// function to render tne superscript number of items in backpack
+renderNumberOfItemsBackpack(document.querySelector("#cart-numbers"), "so-cart");
