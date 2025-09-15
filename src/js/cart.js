@@ -17,6 +17,7 @@ function cartItemTemplate(item) {
     <img
       src="${item.Image}"
       alt="${item.Name}"
+      onerror="this.onerror=null; this.src='../images/tents/tent.webp'";
     />
   </a>
   <a href="#">
