@@ -26,12 +26,17 @@ function cartItemTemplate(item) {
 }
 
 function getCartTotal(cartItems){
+  const totalHTML = document.querySelector(".cart-total");
+  const hide = document.querySelector(".hide");
   let cart = JSON.parse(localStorage.getItem(cartItems)) || [];
+  if (cart.length != 0){
+    hide.classList.remove("hide");
+  }
   let total = 0;
   for (let i = 0; i < cart.length; i++){
     total += cart[i].FinalPrice;
   }
-  console.log(total.toFixed(2));
+  totalHTML.innerHTML = "Total: $" + total;
 }
 
 renderCartContents();
