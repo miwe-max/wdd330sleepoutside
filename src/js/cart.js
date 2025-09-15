@@ -25,4 +25,14 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+function getCartTotal(cartItems){
+  let cart = JSON.parse(localStorage.getItem(cartItems)) || [];
+  let total = 0;
+  for (let i = 0; i < cart.length; i++){
+    total += cart[i].FinalPrice;
+  }
+  console.log(total.toFixed(2));
+}
+
 renderCartContents();
+getCartTotal("so-cart");
