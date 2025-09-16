@@ -11,4 +11,3 @@ productList.init();
 
 // function to render tne superscript number of items in backpack
 renderNumberOfItemsBackpack(document.querySelector("#cart-numbers"), "so-cart");
-

@@ -44,3 +44,11 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const templateArray = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, templateArray.join(""));
 }
+
+// This is the function to render the superscript number of items in the backpack icon
+export function renderNumberOfItemsBackpack(element, key) {
+  // Get the array from localstorage, if the there's no array, instantiate an empty array
+  let productArray = getLocalStorage(key) || [];
+  // Display the length of the array inside the chose element
+  element.innerHTML = productArray.length;
+}

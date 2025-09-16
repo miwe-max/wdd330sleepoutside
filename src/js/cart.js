@@ -31,15 +31,15 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-function getCartTotal(cartItems){
+function getCartTotal(cartItems) {
   const totalHTML = document.querySelector(".cart-total");
   const hide = document.querySelector(".hide");
   let cart = JSON.parse(localStorage.getItem(cartItems)) || [];
-  if (cart.length != 0){
+  if (cart.length != 0) {
     hide.classList.remove("hide");
   }
   let total = 0;
-  for (let i = 0; i < cart.length; i++){
+  for (let i = 0; i < cart.length; i++) {
     total += cart[i].FinalPrice;
   }
   totalHTML.innerHTML = "Total: $" + total;
@@ -51,4 +51,3 @@ getCartTotal("so-cart");
 
 // function to render the superscript number of items in backpack
 renderNumberOfItemsBackpack(document.querySelector("#cart-numbers"), "so-cart");
-
