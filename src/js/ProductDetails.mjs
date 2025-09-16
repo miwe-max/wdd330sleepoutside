@@ -44,6 +44,7 @@ function productDetailsTemplate(product) {
           class="divider"
           src="${product.Image}"
           alt="${product.NameWithoutBrand}"
+          onerror="this.onerror=null; this.src='../images/tents/tent.webp';"
         />
 
         <p class="product-card__price">$${product.ListPrice}</p>
