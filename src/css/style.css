@@ -276,3 +276,38 @@ footer {
 .hide {
   display: none;
 }
+
+/* Style for scrolling message container */
+.scrolling-message {
+  width: 100%;
+  overflow: hidden;
+  background-color: #222; /* adjust background color */
+  color: #fff; /* text color */
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Style for the inner scrolling text */
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  animation: scroll-left 15s linear infinite;
+  /* Let animation state be controllable */
+  animation-play-state: running;
+}
+
+/* Pause the animation when hovered */
+.scrolling-message:hover .scrolling-text {
+  animation-play-state: paused;
+}
+
+/* Animation keyframes */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
